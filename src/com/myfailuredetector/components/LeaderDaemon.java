@@ -30,6 +30,9 @@ public class LeaderDaemon
         this.hostUUID = hostUUID;
     }
 
+    /*
+    A scheduled lambda can also mark the older records and send notifications. No need of this daemon then.
+     */
     public void run() {
         final Date executionStartTimestamp = new Date();
         if (tryToBecomeLeader( executionStartTimestamp )) {
