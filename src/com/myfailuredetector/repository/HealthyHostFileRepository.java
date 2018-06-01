@@ -1,4 +1,4 @@
-package com.myfailuredetector.components;
+package com.myfailuredetector.repository;
 
 import java.io.File;
 

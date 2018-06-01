@@ -2,6 +2,8 @@ package com.myfailuredetector.components;
 
 import java.io.File;
 
+import com.myfailuredetector.repository.HealthyHostFileRepository;
+
 public class FetchAndStoreHealthyRecordsDameon
 {
     // We can also use a template with today's date as suffix
