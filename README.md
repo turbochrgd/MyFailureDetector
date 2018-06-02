@@ -41,3 +41,7 @@ An example of a system to detect healthy host in a clique and get healthy host r
 <strong>FetchAndStoreHealthyRecordsDaemon :</strong> Fetch all the healthy hosts which have checked in to the clique within a certain TOLERANCE. For sake of this design, we will make a thread on the local machine. This job can more efficiently and cheaply run by AWS Lambda.
 
 <strong>GetHealthyHost API :</strong> A restful API to return the "best" healthy host in the clique. This API is used on the localhost only. Implicitly, we cannot reach out to another host to fetch details about which host to communicate to. In real world applications, the User application will reach out to this API on localhost and fetch the healthy hosts in its clique.
+
+
+Next steps: 
+Add CloudWatch log http://boto3.readthedocs.io/en/latest/reference/services/logs.html#CloudWatchLogs.Client.put_log_events
