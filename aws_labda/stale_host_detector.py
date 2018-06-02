@@ -12,14 +12,16 @@ TOLERANCE = int(os.environ['tolerance'])
 REGION = os.environ['region']
 
 def lambda_handler(event, context):
-    print('Running lambda at {}...'.format(event['time']))
+    print('Running lambda')
     dynamodb = boto3.resource('dynamodb', region_name=REGION)
 
     table = dynamodb.Table('host_states')
     currentTime = int(datetime.now().strftime("%s"))
 
+    lookbackTime = 1000 * (currentTime - TOLERANCE)
+    print("Looking for hosts with timestamp less than " + str(lookbackTime))
     response = table.scan(
-        FilterExpression=Key('timestamp').lt(currentTime - TOLERANCE)
+        FilterExpression=Key('timestamp').lt(lookbackTime)
     )
 
     stale_hosts = []

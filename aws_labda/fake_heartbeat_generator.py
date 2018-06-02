@@ -25,7 +25,8 @@ def lambda_handler(event, context):
        Item={
             'timestamp': currentTime,
             'hostUUID': hostName,
-            'hostState': 'HEALTHY'
+            'hostState': 'HEALTHY',
+            'serviceName' : 'MyAwesomeService'
         }
     )
 

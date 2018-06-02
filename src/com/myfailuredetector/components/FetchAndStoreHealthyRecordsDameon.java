@@ -4,7 +4,7 @@ import java.io.File;
 
 import com.myfailuredetector.repository.HealthyHostFileRepository;
 
-public class FetchAndStoreHealthyRecordsDameon
+public class FetchAndStoreHealthyRecordsDameon implements Runnable
 {
     // We can also use a template with today's date as suffix
     private static final String S3_BUCKET_NAME = "my-failure-detector-app-healthy-records";
@@ -24,6 +24,13 @@ public class FetchAndStoreHealthyRecordsDameon
      */
     public void fetchHealthyRecords() {
         final String localFileName = String.format( LOCAL_HEALTHY_HOST_FILE_PATH_TEMPLATE, S3_BUCKET_NAME, HEALTHY_HOST_FILE_NAME );
+        System.out.println( String.format( "Will fetch healthy hosts to file %s", localFileName ));
         this.healthyHostFileRepository.fetchHealthyHostsFileToLocalFile( S3_BUCKET_NAME, HEALTHY_HOST_FILE_NAME, new File( localFileName ) );
+    }
+
+    @Override
+    public void run()
+    {
+        this.fetchHealthyRecords();
     }
 }
