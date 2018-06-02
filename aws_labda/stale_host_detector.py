@@ -9,10 +9,11 @@ import decimal
 from boto3.dynamodb.conditions import Key, Attr
 
 TOLERANCE = int(os.environ['tolerance'])
+REGION = os.environ['region']
 
 def lambda_handler(event, context):
     print('Running lambda at {}...'.format(event['time']))
-    dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+    dynamodb = boto3.resource('dynamodb', region_name=REGION)
 
     table = dynamodb.Table('host_states')
     currentTime = int(datetime.now().strftime("%s"))

@@ -1,0 +1,4 @@
+tolerance=15
+region=us-east-1
+healthy_records_bucket_name=my-failure-detector-app-healthy-records
+topic_arn=arn:aws:sns:us-east-1:751284581337:FailedHostCleanupNotifications

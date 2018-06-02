@@ -7,7 +7,7 @@ import com.myfailuredetector.repository.HealthyHostFileRepository;
 public class FetchAndStoreHealthyRecordsDameon
 {
     // We can also use a template with today's date as suffix
-    private static final String S3_BUCKET_NAME = "MY_FAILURE_DETECTOR_HEALTHY_RECORDS";
+    private static final String S3_BUCKET_NAME = "my-failure-detector-app-healthy-records";
     private static final String HEALTHY_HOST_FILE_NAME = "healthy_hosts";
     private static final String LOCAL_HEALTHY_HOST_FILE_PATH_TEMPLATE = "/tmp/%s/%s";
 
